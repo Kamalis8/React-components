@@ -9,54 +9,32 @@ import React from 'react';
 import {Alert, Button, Image, Keyboard, KeyboardAvoidingView, Platform, SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, TextInput, TouchableHighlight, TouchableOpacity, TouchableWithoutFeedback, View, Linking} from 'react-native';
 
 const App = () => {
+  return(
  
-  const contacts =[
-    {
-      name:'Anita',
-      image:'https://images.pexels.com/photos/8993561/pexels-photo-8993561.jpeg?auto=compress&cs=tinysrgb&w=400',
+  <SafeAreaView>
+  <View>
+    <Text style={styles.heading}>Cards</Text>
+  </View>
 
-  },
-{
-  name:'David',
-  image:'https://images.pexels.com/photos/5384445/pexels-photo-5384445.jpeg?auto=compress&cs=tinysrgb&w=400',
+  <ScrollView horizontal={true}>
+    <Text style={[styles.cards, styles.cardone]}>blue</Text>
+    <Text style={[styles.cards, styles.cardtwo]}>yellow</Text>
+    <Text style={[styles.cards, styles.cardthree]}>green</Text>
+    <Text style={[styles.cards, styles.cardfour]}>sandle</Text>
+    <Text style={[styles.cards, styles.cardfive]}>violet </Text>
+  </ScrollView>
 
-},
-{
-  name:'Nivin',
-  image:'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=400',
+  <Text style={styles.heading}>Pictures</Text>
 
-},
-{
-  name:'Andrew',
-  image:'https://media.istockphoto.com/id/1388253782/photo/positive-successful-millennial-business-professional-man-head-shot-portrait.jpg?b=1&s=612x612&w=0&k=20&c=VsTsa0kjyZ7ALe-nyKAUfynyRxZo8H4LRMdu_ecPuOY=',
+  <ScrollView horizontal={true}>
+    <Image style={styles.picture} source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQivPMPcek0RAaIbjP6bcRCJXq2pIu4tdjS0Q&usqp=CAU' }} />
 
-},{
-  name:'Alex',
-  image:'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400',
-
-},]
-  return (
-
-     
-
-      <ScrollView style={styles.contacts}>
-        <Text style = {styles.conhead}>Contacts</Text>
-
-        
-        {contacts.map (( {name,image})=> (
-          <View style={styles.conview}>
-           <Image source={{uri:image}} style = {styles.imgcon}/>
-
-
-           <View style={styles.textcon}>
-            <Text style = {styles.namecon}>{name}</Text>
-            </View>
-          </View>
-        ))}
-      </ScrollView>
-
-
-
+    <Image style={styles.picture} source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRjGFiGndwGxSPKXSY9Pj8xG7fE950kXyJOA&usqp=CAU' }} />
+    <Image style={styles.picture} source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQI7LMbw4GQH1bLXqB9etxrgDcfaA7BwZKLsg&usqp=CAU' }} />
+    <Image style={styles.picture} source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKfiSjIN7odlEvQ8579yPbU-hRWaV2-_lIMRuCJAfilUfGuP6i0Sf3uJ0XzP4oSu6pf4U&usqp=CAU' }} />
+    <Image style={styles.picture} source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLUTfwMlwd21mdK2tMhS4O8r_C_PTxH5mPYA&usqp=CAU' }} />
+  </ScrollView>
+</SafeAreaView>
     
       
 
@@ -67,55 +45,46 @@ const App = () => {
 
 
 const styles = StyleSheet.create({
+  heading:{
+    fontSize:20,
+    fontWeight:'bold',
+    paddingLeft:20,
+    paddingBottom:20,
+    
+
+  },
  
-  Image:{ width:400,
-    height:400,
-    borderRadius:15,
-
-  },
-
-
-  contacts:{
-  
-  },
-  conhead:{
-    color:'black',
-    fontSize:24,
-    fontWeight:'bold',
-
-  },
-  imgcon:{
-    width:60,
-    height:60,
-    borderRadius:60/2,
-    
-    margin:8,
-
-  },
-  namecon:{
-    color:'black',
-    fontSize:16,
-    fontWeight:'bold',
-    alignItems:'center',
-   flexDirection:'row',
-  justifyContent:'center',
-  },
-  conview:{
+  cards:{
     flex:1,
-    flexDirection:'row',
-    marginBottom:5,
-    backgroundColor:'#9acd32',
-    borderRadius:15,
-
-    
-  },
-  textcon:{
-    justifyContent:'center',
     alignItems:'center',
-    
-    
-  }
-
+    justifyContent:'center',
+    width:100,
+    height:100,
+    padding:20,
+    margin:8,
+  },
+ picture:{
+  width:100,
+  height:100,
+  padding:20,
+  margin:8,
+  borderRadius:20,
+ },
+  cardone:{
+    backgroundColor:'#87ceeb',
+  },
+  cardtwo:{
+    backgroundColor:'#ffff00',
+  },
+  cardthree:{
+    backgroundColor:'green',
+  },
+  cardfour:{
+    backgroundColor:'#f5deb3',
+  },
+  cardfive:{
+    backgroundColor:'#ee82ee',
+  },
 
 
 
