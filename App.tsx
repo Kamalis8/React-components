@@ -1,44 +1,40 @@
+/* eslint-disable @typescript-eslint/no-shadow */
 /**
  * Sample React Native App
  * https://github.com/facebook/react-native
  *
  * @format
  */
-
 import React, {useState} from 'react';
-import {View, Text, Pressable, StyleSheet} from 'react-native';
+import {View, Switch, Text, StyleSheet, StatusBar} from 'react-native';
 
-const Dropdown = () => {
-  const [isOpen, setIsOpen] = useState(false);
+const App = () => {
+  StatusBar.setHidden(true);
 
-  const toggleDropdown = () => {
-    setIsOpen(prevState => !prevState);
-  };
+  const [isEnabled, setIsEnabled] = useState(false);
+
+  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
 
   return (
     <View>
-      <Pressable onPress={toggleDropdown}>
-        <Text style={styles.text}>
-          {isOpen ? 'Close Dropdown' : 'Open Dropdown'}
-        </Text>
-      </Pressable>
-      {isOpen && (
-        <View style={styles.textclose}>
-          <Text>close</Text>
-        </View>
-      )}
+      <Text style={styles.text}>Airplane Mode:</Text>
+      <Switch
+        trackColor={{false: 'grey', true: 'green'}}
+        thumbColor={isEnabled ? 'white' : 'grey'}
+        onValueChange={toggleSwitch}
+        value={isEnabled}
+      />
     </View>
   );
 };
 const styles = StyleSheet.create({
   text: {
-    fontSize: 20,
+    color: 'black',
+    fontsize: 30,
+    fontweight: 'bold',
   },
-
-  textclose: {
-    backgroundColor: 'lightgray',
-    padding: 10,
+  statusbar: {
+    backgroundColor: 'yellow',
   },
 });
-
-export default Dropdown;
+export default App;
