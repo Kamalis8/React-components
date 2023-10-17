@@ -6,7 +6,7 @@
  */
 
 import React, {useState} from 'react';
-import { View, Text, Pressable } from 'react-native';
+import {View, Text, Pressable, StyleSheet} from 'react-native';
 
 const Dropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,17 +18,27 @@ const Dropdown = () => {
   return (
     <View>
       <Pressable onPress={toggleDropdown}>
-        <Text style={{fontSize: 20}}>
+        <Text style={styles.text}>
           {isOpen ? 'Close Dropdown' : 'Open Dropdown'}
         </Text>
       </Pressable>
       {isOpen && (
-        <View style={{backgroundColor: 'lightgray', padding: 10}}>
+        <View style={styles.textclose}>
           <Text>close</Text>
         </View>
       )}
     </View>
   );
 };
+const styles = StyleSheet.create({
+  text: {
+    fontSize: 20,
+  },
+
+  textclose: {
+    backgroundColor: 'lightgray',
+    padding: 10,
+  },
+});
 
 export default Dropdown;
