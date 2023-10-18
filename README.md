@@ -8,7 +8,7 @@
 5 Stylesheet
 
 ## Aim of the Project
-To display the seven wonder o0f the world using Flatlist
+To display the seven wonder of the world using Flatlist
 
-## Screenshot
+
 
