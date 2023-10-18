@@ -11,7 +11,7 @@
 To display the seven wonder of the world using Flatlist
 
 ##Screenshot
-![alt text](C:\Users\kamali.s\Documents\MyReactNativeProject\SampleProject\Screenshot\Screenshot (16).png)
+![Image Alt Text](C:\Users\kamali.s\Documents\MyReactNativeProject\SampleProject\Screenshot\Screenshot (16).png)
 
 
 
