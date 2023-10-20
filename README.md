@@ -9,7 +9,7 @@
 
 
 ## Aim Of The project
-  To display the list of names with profile and their places in scrollable view list.
+ To display a scrollable list of names, along with their profiles and associated places,
   
 ## screenshot
 
