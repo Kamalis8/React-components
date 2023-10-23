@@ -5,184 +5,147 @@
  * @format
  */
 import React from 'react';
-import {Text, View, StyleSheet, Image, FlatList} from 'react-native';
 
-const details = [
+import {Text, View, Image, StyleSheet, FlatList} from 'react-native';
+const info = [
   {
-    id: 1,
-    name: 'John Doe',
+    name: 'March soulLabcoma',
+    detail:
+      'loral ispum dolor sit amet, consectetuer adpiscing elit.Aenean commodo ligula eged dolor',
+    hour: '2 hours ago',
     image:
-      'https://images.pexels.com/photos/3785077/pexels-photo-3785077.jpeg?auto=compress&cs=tinysrgb&w=400',
-    place: 'New York City',
+      'https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?size=626&ext=jpg&ga=GA1.1.13402438.1698050074&semt=ais',
+    sqimage:
+      'https://img.freepik.com/free-photo/bunch-flowers-that-are-pink-orange_1340-31751.jpg?size=626&ext=jpg&ga=GA1.1.13402438.1698050074&semt=ais',
   },
   {
-    id: 2,
-    name: 'Jane Doe',
+    name: 'John DeoLink',
+    detail:
+      'loral ispum dolor sit amet, consectetuer adpiscing elit.Aenean commodo ligula eged dolor',
+    hour: '2 hours ago',
     image:
-      'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=400',
-    place: 'Los Angeles',
+      'https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg?size=626&ext=jpg&ga=GA1.1.13402438.1698050074&semt=ais',
+    sqimage:
+      'https://img.freepik.com/free-photo/beautiful-sunset-mountain-around-beach-sea-ocean-rock_74190-13333.jpg?size=626&ext=jpg&ga=GA1.1.13402438.1698050074&semt=ais',
   },
   {
-    id: 3,
-    name: 'Michael Smith',
+    name: 'Finn DoRemiFaso',
+    detail:
+      'loral ispum dolor sit amet, consectetuer adpiscing elit.Aenean commodo ligula eged dolor',
+    hour: '2 hours ago',
     image:
-      'https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=400',
-    place: 'Toronto',
+      'https://img.freepik.com/premium-vector/young-man-avatar-character_24877-9475.jpg?size=626&ext=jpg&ga=GA1.1.13402438.1698050074&semt=ais',
   },
   {
-    id: 4,
-    name: 'Emily Johnson',
+    name: 'Maria More More',
+    detail:
+      'loral ispum dolor sit amet, consectetuer adpiscing elit.Aenean commodo ligula eged dolor',
+    hour: '2 hours ago',
     image:
-      'https://images.pexels.com/photos/1040880/pexels-photo-1040880.jpeg?auto=compress&cs=tinysrgb&w=400',
-    place: 'Chicago',
+      'https://img.freepik.com/free-vector/illustration-user-avatar-icon_53876-5907.jpg?size=626&ext=jpg&ga=GA1.1.13402438.1698050074&semt=ais',
   },
   {
-    id: 5,
-    name: 'David Brown',
+    name: 'Frank Odalthh',
+    detail:
+      'loral ispum dolor sit amet, consectetuer adpiscing elit.Aenean commodo ligula eged dolor',
+    hour: '2 hours ago',
     image:
-      'https://images.pexels.com/photos/2190377/pexels-photo-2190377.jpeg?auto=compress&cs=tinysrgb&w=400',
-    place: 'San Francisco',
+      'https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436178.jpg?size=626&ext=jpg&ga=GA1.1.13402438.1698050074&semt=ais',
+    sqimage:
+      'https://img.freepik.com/free-photo/beautiful-old-tree-grown-edge-rock-with-amazing-clouds-side-sunlight_181624-2512.jpg?size=626&ext=jpg&ga=GA1.1.13402438.1698050074&semt=ais',
   },
   {
-    id: 6,
-    name: 'Sarah Davis',
+    name: 'Clark June Boom!',
+    detail:
+      'loral ispum dolor sit amet, consectetuer adpiscing elit.Aenean commodo ligula eged dolor',
+    hour: '2 hours ago',
     image:
-      'https://images.pexels.com/photos/1080213/pexels-photo-1080213.jpeg?auto=compress&cs=tinysrgb&w=400',
-    place: 'Miami',
+      'https://img.freepik.com/free-vector/isolated-young-handsome-man-set-different-poses-white-background-illustration_632498-649.jpg?size=626&ext=jpg&ga=GA1.1.13402438.1698050074&semt=ais',
   },
   {
-    id: 7,
-    name: 'Robert Wilson',
+    name: 'The googler',
+    detail:
+      'loral ispum dolor sit amet, consectetuer adpiscing elit.Aenean commodo ligula eged dolor',
+    hour: '2 hours ago',
     image:
-      'https://images.pexels.com/photos/4067753/pexels-photo-4067753.jpeg?auto=compress&cs=tinysrgb&w=400',
-    place: 'London',
-  },
-  {
-    id: 8,
-    name: 'Jessica Lee',
-    image:
-      'https://images.pexels.com/photos/3779853/pexels-photo-3779853.png?auto=compress&cs=tinysrgb&w=400',
-    place: 'Paris',
-  },
-  {
-    id: 9,
-    name: 'James Taylor',
-    image:
-      'https://images.pexels.com/photos/9558566/pexels-photo-9558566.jpeg?auto=compress&cs=tinysrgb&w=400',
-    place: 'Tokyo',
-  },
-  {
-    id: 10,
-    name: 'Olivia Martinez',
-    image:
-      'https://images.pexels.com/photos/3772519/pexels-photo-3772519.jpeg?auto=compress&cs=tinysrgb&w=400',
-    place: 'Sydney',
-  },
-  {
-    id: 11,
-    name: 'Daniel Anderson',
-    image:
-      'https://images.pexels.com/photos/5083205/pexels-photo-5083205.jpeg?auto=compress&cs=tinysrgb&w=400',
-    place: 'Berlin',
-  },
-  {
-    id: 12,
-    name: 'Sophia Jones',
-    image:
-      'https://images.pexels.com/photos/6965750/pexels-photo-6965750.jpeg?auto=compress&cs=tinysrgb&w=400',
-    place: 'Mumbai',
-  },
-  {
-    id: 13,
-    name: 'Maria Garcia',
-    image:
-      'https://media.istockphoto.com/id/1334084943/photo/excited-asian-young-woman.jpg?s=612x612&w=0&k=20&c=qokGWWdviOu5uPGLvD7fMNi3bjvNedSJWdtTcknBPnI=',
-    place: 'Cairo',
-  },
-  {
-    id: 14,
-    name: 'Elena Russo',
-    image:
-      'https://media.istockphoto.com/id/1437816897/photo/business-woman-manager-or-human-resources-portrait-for-career-success-company-we-are-hiring.jpg?s=1024x1024&w=is&k=20&c=iGtRKCTRSvPVl3eOIpzzse5SvQFfImkV0TZuFh-74ps=',
-    place: 'Dubai',
-  },
-  {
-    id: 15,
-    name: 'Abdul Rahman',
-    image:
-      'https://images.pexels.com/photos/12600067/pexels-photo-12600067.jpeg?auto=compress&cs=tinysrgb&w=400',
-    place: 'New Delhi',
+      'https://img.freepik.com/premium-vector/man-avatar-icon-flat-illustration-man-avatar-vector-icon-any-web-design_98396-3374.jpg?size=626&ext=jpg&ga=GA1.1.13402438.1698050074&semt=ais',
   },
 ];
 const renderItem = ({item}) => {
+  console.log('item', item);
   return (
-    <>
+    <View style={styles.screen}>
       <View style={styles.container}>
-        <View style={styles.textcontainer}>
-          <Text style={styles.name}>{item.name}</Text>
-          <Text style={styles.place}> {item.place}</Text>
-        </View>
         <Image source={{uri: item.image}} style={styles.image} />
+        <View style={styles.textContainer}>
+          <Text style={styles.name}>{item.name}</Text>
+          <Text style={styles.detail} numberOfLines={4}>
+            {item.detail}
+          </Text>
+          <Text style={styles.hour}>{item.hour}</Text>
+        </View>
+        <Image source={{uri: item.sqimage}} style={styles.sideimg} />
       </View>
-    </>
+    </View>
   );
 };
+
 const App = () => {
   return (
-    <>
-      <View style={styles.titlestyle}>
-        <Text style={styles.title}>Location List </Text>
-      </View>
-
-      <View>
-        <FlatList data={details} renderItem={renderItem} />
-      </View>
-    </>
+    <View>
+      <FlatList data={info} renderItem={renderItem} />
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
+  screen: {
+    flex: 1,
+    justifyContent: 'center',
+    paddingHorizontal: 16,
+  },
   container: {
-    flexDirection: 'row-reverse',
-    alignItems: 'center',
-    justifyContent: 'flex-end',
-    paddingBottom: 12,
+    flexDirection: 'row',
+    alignItems: 'stretch',
+    justifyContent: 'space-evenly',
+    borderBottomWidth: 1,
     borderColor: '#a9a9a9',
-    borderWidth: 1,
-  },
-  textcontainer: {
-    marginLeft: 10,
-  },
-  title: {
-    fontSize: 26,
-    color: '#ffffff',
     padding: 20,
   },
-  titlestyle: {
-    backgroundColor: 'red',
-    justifyContent: 'center',
-    alignItems: 'center',
+  textContainer: {
+    flexDirection: 'column',
   },
+
   name: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: '#000000',
-    marginTop: 10,
+    fontSize: 16,
+    color: '#1e90ff',
+    paddingLeft: 30,
   },
-  place: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#a9a9a9',
+  detail: {
+    fontSize: 14,
+    color: '#000000',
+    paddingLeft: 30,
+    paddingRight: 32,
+    fontWeight: '500',
+  },
+  hour: {
+    fontSize: 12,
+    color: '#696969',
+    paddingLeft: 30,
+    paddingTop: 8,
   },
   image: {
-    width: 80,
-    height: 80,
-    borderRadius: 80 / 2,
-    borderColor: 'red',
-    borderWidth: 2,
-    marginTop: 10,
-    justifyContent: 'flex-start',
+    width: 50,
+    height: 50,
+    borderRadius: 50 / 2,
+    borderColor: '#696969',
+    borderWidth: 1,
+    paddingRight: 40,
+  },
+  sideimg: {
+    width: 50,
+    height: 50,
+    padding: 20,
   },
 });
-
 export default App;
