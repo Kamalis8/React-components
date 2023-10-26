@@ -188,17 +188,11 @@ const App = () => {
     return grotypColor;
   };
   const [page, setPage] = useState(1);
-  const [CanLoadMore, setCanLoadMore] = useState(true);
-  const [data, setdata] = useState([info]);
+  const [data, setdata] = useState(info);
   const loadMoreData = () => {
-    const nextPage = page + 1;
-    console.log('loadMoreData', 'nextpage', 'newdata', 'data');
-   // const newdata = info.slice(nextPage * 5, nextPage * 5 + 10);
-    if (nextPage > 1) {
-      setdata([...data, ...paginationdata]);
-    } else {
-      setCanLoadMore(false);
-    }
+    setPage(page + 1);
+    console.log('page', page + 1);
+    setdata([...data, ...paginationdata]);
   };
   const renderItem = ({item}) => {
     return (
@@ -220,6 +214,7 @@ const App = () => {
       </View>
     );
   };
+  console.log('data', JSON.stringify(data));
   return (
     <View style={styles.topcon}>
       <View style={styles.headtext}>
