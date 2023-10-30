@@ -1,3 +1,5 @@
+const { CheckBox } = require("react-native-elements");
+
 module.exports = {
   extends: ['@commitlint/config-conventional'],
   rules: {
