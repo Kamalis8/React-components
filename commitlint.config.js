@@ -23,7 +23,7 @@ module.exports = {
         'navigation',
         'redux',
         'api',
-        'checkbox', // Added 'checkbox' as a valid commit type
+        'checkbox',
       ],
     ],
   },
