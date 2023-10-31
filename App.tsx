@@ -8,67 +8,29 @@
  */
 
 import React from 'react';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import Homescreen from './Screens/Homescreen';
-import Detailscreen from './Screens/Detailscreen';
-import Loginscreen from './Screens/Loginscreen';
 
-const Stack = createNativeStackNavigator();
+import Profilescreen from './Screens/Profilescreen';
+import Searchscreen from './Screens/Searchscreen';
+import Postscreen from './Screens/Postscreen';
+import Settingscreen from './Screens/Settingscreen';
+import Chatscreen from './Screens/Chatscreen';
 
-const App = () => {
+const Tab = createBottomTabNavigator();
+
+const Navigation = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="login"
-          component={Loginscreen}
-          options={{
-            title: 'login',
-            headerStyle: {
-              backgroundColor: 'skyblue',
-            },
-            headerTintColor: 'white',
-            headerTitleStyle: {
-              fontSize: 20,
-            },
-            headerTitleAlign: 'left',
-          }}
-        />
-
-        <Stack.Screen
-          name="Home"
-          component={Homescreen}
-          options={{
-            title: 'Home',
-            headerStyle: {
-              backgroundColor: 'skyblue',
-            },
-            headerTintColor: 'white',
-            headerTitleStyle: {
-              fontSize: 20,
-            },
-            headerTitleAlign: 'center',
-          }}
-        />
-        <Stack.Screen
-          name="Detail"
-          component={Detailscreen}
-          options={{
-            title: 'Detail',
-            headerStyle: {
-              backgroundColor: 'skyblue',
-            },
-            headerTintColor: 'white',
-            headerTitleStyle: {
-              fontSize: 20,
-            },
-            headerTitleAlign: 'center',
-          }}
-        />
-      </Stack.Navigator>
+      <Tab.Navigator>
+        <Tab.Screen name="Profile" component={Profilescreen} />
+        <Tab.Screen name="Search" component={Searchscreen} />
+        <Tab.Screen name="Post" component={Postscreen} />
+        <Tab.Screen name="Chat" component={Chatscreen} />
+        <Tab.Screen name="Settings" component={Settingscreen} />
+      </Tab.Navigator>
     </NavigationContainer>
   );
 };
 
-export default App;
+export default Navigation;
