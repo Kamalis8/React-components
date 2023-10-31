@@ -1,5 +1,3 @@
-const { CheckBox } = require("react-native-elements");
-
 module.exports = {
   extends: ['@commitlint/config-conventional'],
   rules: {
@@ -25,6 +23,7 @@ module.exports = {
         'navigation',
         'redux',
         'api',
+        'checkbox', // Added 'checkbox' as a valid commit type
       ],
     ],
   },
