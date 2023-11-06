@@ -7,23 +7,21 @@
  * @format
  */
 
-import React from 'react';
-import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
+import * as React from 'react';
+import {createDrawerNavigator} from '@react-navigation/drawer';
 import {NavigationContainer} from '@react-navigation/native';
 import Homescreen from './Screens/Homescreen';
-import Profilescreen from './Screens/Profilescreen';
+import Notificationscreen from './Screens/Notificationscreen';
 
-const Tab = createMaterialTopTabNavigator();
+const Drawer = createDrawerNavigator();
 
-const App = () => {
+export default function App() {
   return (
     <NavigationContainer>
-      <Tab.Navigator>
-        <Tab.Screen name="Home" component={Homescreen} />
-        <Tab.Screen name="Profile" component={Profilescreen} />
-      </Tab.Navigator>
+      <Drawer.Navigator initialRouteName="Home">
+        <Drawer.Screen name="Home" component={Homescreen} />
+        <Drawer.Screen name="Notifications" component={Notificationscreen} />
+      </Drawer.Navigator>
     </NavigationContainer>
   );
-};
-
-export default App;
+}

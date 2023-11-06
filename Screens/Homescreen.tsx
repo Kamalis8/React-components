@@ -1,9 +1,12 @@
 import React from 'react';
-import {View, StyleSheet, Text} from 'react-native';
-const Homescreen = () => {
+import {View, StyleSheet, Button,} from 'react-native';
+const Homescreen = navigation => {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Home Screen </Text>
+      <Button
+        onPress={() => navigation.navigate('Notifications')}
+        title="Go to notifications"
+      />
     </View>
   );
 };
@@ -14,11 +17,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  text: {
-    fontSize: 16,
-    color: 'black',
-    fontWeight: '600',
-  },
+
 });
 export default Homescreen;
-

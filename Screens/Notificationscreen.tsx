@@ -1,10 +1,10 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, StyleSheet, Button} from 'react-native';
 
-const Profilescreen = () => {
+const Notificationscreen = (navigation) => {
   return (
     <View style={styles.container}>
-      <Text>Profile Screen</Text>
+      <Button onPress={() => navigation.goBack()} title="Go back home" />
     </View>
   );
 };
@@ -16,4 +16,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Profilescreen;
+export default Notificationscreen;
