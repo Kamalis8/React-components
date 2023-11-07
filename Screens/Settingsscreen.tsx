@@ -1,10 +1,10 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 
-const Notificationscreen = () => {
+const Settingsscreen = () => {
   return (
     <View style={styles.container}>
-      <Text>Notification Screen</Text>
+      <Text>Settings Screen</Text>
     </View>
   );
 };
@@ -15,5 +15,4 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 });
-
-export default Notificationscreen;
+export default Settingsscreen;

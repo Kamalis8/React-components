@@ -1,10 +1,10 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 
-const Notificationscreen = () => {
+const Calendarscreen = () => {
   return (
     <View style={styles.container}>
-      <Text>Notification Screen</Text>
+      <Text>Calendar Screen</Text>
     </View>
   );
 };
@@ -16,4 +16,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Notificationscreen;
+export default Calendarscreen;
