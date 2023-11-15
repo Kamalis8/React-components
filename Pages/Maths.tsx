@@ -1,12 +1,12 @@
 import React from 'react';
 import {View, Text} from 'react-native';
 
-const ChatScreen = () => {
+const Maths = () => {
   return (
     <View>
-      <Text>Dashboard Screen</Text>
+      <Text>Maths Screen</Text>
     </View>
   );
 };
 
-export default ChatScreen;
+export default Maths;

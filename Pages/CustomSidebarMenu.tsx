@@ -1,12 +1,12 @@
 import React from 'react';
 import {View, Text} from 'react-native';
 
-const ChatScreen = () => {
+const CustomSidebarMenu = () => {
   return (
     <View>
-      <Text>Dashboard Screen</Text>
+      <Text>CustomSidebarMenu Screen</Text>
     </View>
   );
 };
 
-export default ChatScreen;
+export default CustomSidebarMenu;
