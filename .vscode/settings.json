@@ -5,6 +5,7 @@
         "Homescreen",
         "onpresshandler",
         "Pressable",
-        "textclose"
+        "textclose",
+        "Textinput"
     ]
 }

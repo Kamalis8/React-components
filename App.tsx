@@ -9,22 +9,14 @@
 // App.js
 
 import React, {useEffect, useState} from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  TextInput,
-  Image,
-  TouchableOpacity,
-  Appearance,
-  Alert,
-} from 'react-native';
-import {
-  IMAGEDARKFRAME,
-  IMAGEFACEBOOK,
-  IMAGEGOOGLE,
-  IMAGENAME,
-} from './src/assets/image';
+import {View, Text, StyleSheet, Image, Appearance} from 'react-native';
+import Strings from './src/utils.js/String';
+import {IMAGEDARKFRAME, IMAGENAME} from './src/assets/image';
+import CustomTextinput from './src/Components/CustomTextinput';
+import Customtext from './src/Components/Customtext';
+import Customicon from './src/Components/Customicon';
+import Customtext2 from './src/Components/Customtext2';
+import Appconstantcolor from './src/assets/Appconstantcolor';
 
 const App = () => {
   const [colorScheme, setColorScheme] = useState(Appearance.getColorScheme());
@@ -38,214 +30,63 @@ const App = () => {
       subscription.remove();
     };
   }, []);
-
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
-  const handleEmailChange = text => {
-    setEmail(text);
-  };
-  const handlePasswordChange = text => {
-    setPassword(text);
-  };
-
   const imageSource = colorScheme === 'dark' ? IMAGEDARKFRAME : IMAGENAME;
-  const handleValidation = () => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    if (emailRegex.test(email)) {
-      if (password.length >= 6) {
-        Alert.alert('Success', 'Email and password are valid');
-      } else {
-        Alert.alert('Error', 'Password must be at least 6 characters');
-      }
-    } else {
-      Alert.alert('Error', 'Please enter a valid email address');
-    }
-  };
 
   return (
-    <>
+    <View
+      style={[
+        {flex: 1},
+        {
+          backgroundColor:
+            colorScheme === 'dark'
+              ? Appconstantcolor.black1
+              : Appconstantcolor.White,
+        },
+      ]}>
       <View
         style={{
           flex: 1,
-          backgroundColor: colorScheme === 'dark' ? '#000113' : '#FFFFFF',
+          backgroundColor:
+            colorScheme === 'dark'
+              ? Appconstantcolor.black1
+              : Appconstantcolor.White,
         }}>
         <Image style={styles.image} source={imageSource} />
         <View style={styles.overlay}>
           <Text
             style={[
               styles.text3,
-              {color: colorScheme === 'dark' ? '#FFFFFF' : '#1E293B'},
+              {
+                color:
+                  colorScheme === 'dark'
+                    ? Appconstantcolor.White
+                    : Appconstantcolor.black2,
+              },
             ]}>
-            Login
+            {Strings.Text1}
           </Text>
         </View>
       </View>
-      <View style={{flex: 1}}>
-        <View
-          style={[
-            styles.textcontainer,
-            {backgroundColor: colorScheme === 'dark' ? '#000113' : '#FFFFFF'},
-          ]}>
-          <TextInput
-            style={[
-              styles.input,
-              {
-                borderBottomColor:
-                  colorScheme === 'dark' ? '#64748B' : '#CBD5E1',
-                color: colorScheme === 'dark' ? '#CCCCCC' : '#000113',
-              },
-            ]}
-            placeholder="Email"
-            keyboardType="email-address"
-            autoCapitalize="none"
-            placeholderTextColor={
-              colorScheme === 'dark' ? '#94A3B8' : '#475569'
-            }
-            onChangeText={handleEmailChange}
-            value={email}
-          />
-          <View style={styles.password}>
-            <TextInput
-              style={[
-                styles.input,
-                {
-                  borderBottomColor:
-                    colorScheme === 'dark' ? '#64748B' : '#CBD5E1',
-                },
-              ]}
-              placeholder="Passsword"
-              placeholderTextColor={
-                colorScheme === 'dark' ? '#94A3B8' : '#475569'
-              }
-              onChangeText={handlePasswordChange}
-              value={password}
-            />
-            <TouchableOpacity style={styles.forget}>
-              <Text
-                style={[
-                  styles.text5,
-                  {color: colorScheme === 'dark' ? '#FFFFFF' : '#000113'},
-                ]}>
-                Forgot?
-              </Text>
-            </TouchableOpacity>
-          </View>
-        </View>
-        <View
-          style={{
-            flex: 1,
-            backgroundColor: colorScheme === 'dark' ? '#000113' : '#FFFFFF',
-          }}>
-          <View
-            style={[
-              styles.buttoncontainer,
-              {
-                backgroundColor: colorScheme === 'dark' ? '#000113' : '#FFFFFF',
-              },
-            ]}>
-            <TouchableOpacity
-              style={[
-                styles.button,
-                {
-                  backgroundColor:
-                    colorScheme === 'dark' ? '#334155' : '#000113',
-                },
-              ]}
-              onPress={handleValidation}>
-              <Text style={styles.buttonText}>Log In</Text>
-            </TouchableOpacity>
-          </View>
-          <View
-            style={[
-              styles.container,
-              {backgroundColor: colorScheme === 'dark' ? '#000113' : '#FFFFFF'},
-            ]}>
-            <View style={styles.textcontinue}>
-              <Text
-                style={[
-                  styles.text6,
-                  {color: colorScheme === 'dark' ? '#94A3B8' : '#64748B'},
-                ]}>
-                Or continue with
-              </Text>
-            </View>
-            <View style={styles.icon}>
-              <View
-                style={[
-                  styles.imagecon,
-                  {
-                    backgroundColor:
-                      colorScheme === 'dark' ? '#000113' : '#F1F5F9',
-                    borderColor: colorScheme === 'dark' ? '#334155' : '#F1F5F9',
-                  },
-                ]}>
-                <Image
-                  style={[
-                    styles.imageicon,
-                    {
-                      backgroundColor:
-                        colorScheme === 'dark' ? '#000113' : '#FFFFFF',
-                    },
-                  ]}
-                  source={IMAGEGOOGLE}
-                />
-                <TouchableOpacity>
-                  <Text
-                    style={[
-                      styles.text,
-                      {color: colorScheme === 'dark' ? '#94A3B8' : '#64748B'},
-                    ]}>
-                    Google
-                  </Text>
-                </TouchableOpacity>
-              </View>
-              <View
-                style={[
-                  styles.imagecon,
-                  {
-                    backgroundColor:
-                      colorScheme === 'dark' ? '#000113' : '#F1F5F9',
-                    borderColor: colorScheme === 'dark' ? '#334155' : '#F1F5F9',
-                  },
-                ]}>
-                <Image style={styles.imageicon} source={IMAGEFACEBOOK} />
-                <TouchableOpacity>
-                  <Text
-                    style={[
-                      styles.text,
-                      {color: colorScheme === 'dark' ? '#94A3B8' : '#64748B'},
-                    ]}>
-                    Facebook
-                  </Text>
-                </TouchableOpacity>
-              </View>
-            </View>
-            <View style={styles.containertext}>
-              <Text
-                style={[
-                  styles.text1,
-                  {color: colorScheme === 'dark' ? '#94A3B8' : '#64748B'},
-                ]}>
-                Don’t have account?
-              </Text>
-              <TouchableOpacity>
-                <Text
-                  style={[
-                    styles.text2,
-                    {color: colorScheme === 'dark' ? '#FFFFFF' : '#000113'},
-                  ]}>
-                  Create now
-                </Text>
-              </TouchableOpacity>
-            </View>
-          </View>
-        </View>
+      <View
+        style={{
+          flex: 1,
+          backgroundColor:
+            colorScheme === 'dark'
+              ? Appconstantcolor.black1
+              : Appconstantcolor.White,
+        }}>
+        <CustomTextinput />
+    
+
+        <Customtext />
+
+        <Customicon />
+        <Customtext2 />
       </View>
-    </>
+    </View>
   );
 };
+
 const styles = StyleSheet.create({
   image: {
     width: '100%',
@@ -270,6 +111,7 @@ const styles = StyleSheet.create({
     marginTop: 15,
     backgroundColor: 'white',
   },
+
   input: {
     height: 50,
     width: '100%',
@@ -282,16 +124,19 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch',
     justifyContent: 'flex-start',
   },
+
   buttoncontainer: {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
   },
+
   imageicon: {
     width: 20,
     height: 20,
     resizeMode: 'cover',
   },
+
   imagecon: {
     flexDirection: 'row',
     paddingVertical: 10,
@@ -300,6 +145,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#334155',
   },
+
   icon: {
     display: 'flex',
     flexDirection: 'row',
@@ -384,5 +230,23 @@ const styles = StyleSheet.create({
     fontSize: 14,
     lineHeight: 20,
   },
+  modalContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  modalContent: {
+    padding: 20,
+    borderRadius: 10,
+    alignItems: 'center',
+  },
+  invalidInput: {
+    borderColor: 'red',
+  },
+  errorText: {
+    color: 'red',
+    marginBottom: 10,
+  },
+ 
 });
 export default App;
