@@ -1,10 +1,10 @@
-import React from 'react';
+import * as React from 'react';
 import {View, Text} from 'react-native';
 
 const AboutScreen = () => {
   return (
     <View>
-      <Text>CustomSidebarMenu Screen</Text>
+      <Text>Welcome to AboutScreen</Text>
     </View>
   );
 };

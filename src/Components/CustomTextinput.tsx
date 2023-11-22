@@ -12,7 +12,8 @@ import {
 import Strings from '../utils.js/String';
 import Appconstantcolor from '../assets/Appconstantcolor';
 
-const CustomTextinput = () => {
+const CustomTextinput = ({nav}) => {
+  console.log('asd', nav);
   const [colorScheme, setColorScheme] = useState(Appearance.getColorScheme());
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -32,6 +33,7 @@ const CustomTextinput = () => {
 
   const handleEmailChange = text => {
     setEmail(text);
+    console.log('set===>', /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(text));
 
     setIsValidEmail(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(text));
   };
@@ -40,16 +42,19 @@ const CustomTextinput = () => {
     setPassword(text);
   };
 
-  const handleValidation = () => {
-    if (isValidEmail && password.length >= 6) {
-      setValidationMessage('Email and password are valid');
-    } else if (!isValidEmail) {
+  const handleValidation = () => { 
+    nav.navigate('Home');
+    console.log(isValidEmail)
+    //arunkumar@gmail.com
+    if (!isValidEmail) {
       setValidationMessage('Please enter a valid email address');
-    } else {
+      setModalVisible(true)
+    } else if (password.length < 6) {
+      setModalVisible(true)
       setValidationMessage('Password must be at least 6 characters');
+    } else {
+      nav.navigate('Home');
     }
-
-    setModalVisible(true);
   };
 
   const closeModal = () => {
@@ -102,37 +107,36 @@ const CustomTextinput = () => {
           value={email}
         />
         {/* <View style={styles.passwordContainer}> */}
-          <TextInput
-            style={[
-              styles.input,
-              {
+        <TextInput
+          style={[
+            styles.input,
+            {
+              color:
+                colorScheme === 'dark'
+                  ? Appconstantcolor.gray7
+                  : Appconstantcolor.black1,
+            },
+            password.length > 0 &&
+              password.length < 6 && {
                 color:
                   colorScheme === 'dark'
-                    ? Appconstantcolor.gray7
+                    ? Appconstantcolor.White
                     : Appconstantcolor.black1,
               },
-              password.length > 0 &&
-                password.length < 6 && {
-                  color:
-                    colorScheme === 'dark'
-                      ? Appconstantcolor.White
-                      : Appconstantcolor.black1,
-                  
-                },
-            ]}
-            placeholder="Password"
-            placeholderTextColor={
-              colorScheme === 'dark'
-                ? Appconstantcolor.gray5
-                : Appconstantcolor.gray1
-            }
-            onChangeText={handlePasswordChange}
-            value={password}
-          />
-          {/* <TouchableOpacity>
+          ]}
+          placeholder="Password"
+          placeholderTextColor={
+            colorScheme === 'dark'
+              ? Appconstantcolor.gray5
+              : Appconstantcolor.gray1
+          }
+          onChangeText={handlePasswordChange}
+          value={password}
+        />
+        {/* <TouchableOpacity>
             <Text style={styles.forgetPasswordText}>Forget?</Text>
           </TouchableOpacity> */}
-        </View>
+      </View>
       {/* </View> */}
       <View
         style={{
