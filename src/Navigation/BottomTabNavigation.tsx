@@ -17,7 +17,7 @@ const BottomTabNavigation = () => {
           headerShown: false,
           tabBarIcon: ({color, size}) => (
             <Icon
-              name="rocket"
+              name="home"
               // type="ionicon"
               color='red'
               size={34}

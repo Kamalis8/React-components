@@ -42,10 +42,8 @@ const CustomTextinput = ({nav}) => {
     setPassword(text);
   };
 
-  const handleValidation = () => { 
-    nav.navigate('Home');
-    console.log(isValidEmail)
-    //arunkumar@gmail.com
+  const handleValidation = () => {
+   
     if (!isValidEmail) {
       setValidationMessage('Please enter a valid email address');
       setModalVisible(true)

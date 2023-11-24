@@ -8,5 +8,8 @@ const Strings = {
   Text7: 'Facebook',
   Text8: 'Don’t have account?',
   Text9: 'Create now',
+  Text10: '28º',
+  Text11:'Precipitations',
+  Text12:'Max.: 31º Min.: 25º',
 };
 export default Strings;

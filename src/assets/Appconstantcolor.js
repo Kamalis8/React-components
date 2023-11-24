@@ -12,5 +12,6 @@ const Appconstantcolor = {
   gray8: '#334155',
   gray9: '#F1F5F9',
   red: '#ff0000',
+  blue: '#00008b',
 };
 export default Appconstantcolor;
