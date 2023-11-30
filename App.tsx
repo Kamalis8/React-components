@@ -8,15 +8,29 @@
 
 // App.js
 
-import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
-import MainNavigation from './src/Navigation/MainNavigation';
+// import React from 'react';
+// import {View, Text, StyleSheet} from 'react-native';
+// import MainNavigation from './src/Navigation/MainNavigation';
 
-const App = () => {
+// const App = () => {
+//   return (
+//     <>
+//       <MainNavigation />
+//     </>
+//   );
+// };
+// export default App;
+
+// App.js
+import {Provider} from 'react-redux';
+import Home from './src/redux/Home';
+import {store} from './src/redux/Store';
+import React from 'react';
+
+export default function App() {
   return (
-    <>
-      <MainNavigation />
-    </>
+    <Provider store={store}>
+      <Home />
+    </Provider>
   );
-};
-export default App;
+}

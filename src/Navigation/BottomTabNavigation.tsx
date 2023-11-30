@@ -3,7 +3,6 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import HomeScreen from '../Screens/HomeScreen';
 import AboutScreen from '../Screens/AboutScreen';
 import {Icon} from 'react-native-elements';
-import Appconstantcolor from '../assets/Appconstantcolor';
 
 const Tab = createBottomTabNavigator();
 
@@ -19,7 +18,7 @@ const BottomTabNavigation = () => {
             <Icon
               name="home"
               // type="ionicon"
-              color='red'
+              color="red"
               size={34}
             />
           ),

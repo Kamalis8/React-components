@@ -5,84 +5,96 @@ import {IMAGECLOUD} from '../assets/image';
 import Strings from '../utils.js/String';
 import Appconstantcolor from '../assets/Appconstantcolor';
 import LinearGradient from 'react-native-linear-gradient';
+import axios from 'axios';
 import {useEffect, useState} from 'react';
 
 const HomeScreen = () => {
-  const [isLoading, setLoading] = useState(true);
-  const [data, setData] = useState([]);
+  // const [isLoading, setLoading] = useState(true);
+  // const [data, setData] = useState([]);
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+  // useEffect(() => {
+  //   fetchData();
+  // }, []);
 
-  const fetchData = async () => {
-    // try {
-    //   const response = await fetch(
-    //     'https://jsonplaceholder.typicode.com/posts/',
-    //   );
-    //   console.log('data-->', JSON.stringify(response));
-    //   if (response.status != 200) {
-    //     throw new Error('Network request failed');
-    //   }
+  // const fetchData = async () => {
+  // try {
+  //   const response = await fetch(
+  //     'https://jsonplaceholder.typicode.com/posts/',
+  //   );
+  //   console.log('data-->', JSON.stringify(response));
+  //   if (response.status != 200) {
+  //     throw new Error('Network request failed');
+  //   }
 
-    //   const jsonData = await response.json();
+  //   const jsonData = await response.json();
 
-    //   setData(jsonData);
-    // } catch (error) {
-    //   console.error('Error:', error);
-    // } finally {
-    //   setLoading(false);
-    // }
-    // const response = await fetch(
-    //   'https://615fcf10f7254d001706821b.mockapi.io/api/v1/users',
-    // );
-    // const json = await response.json();
-    // console.log('data', json);
+  //   setData(jsonData);
+  // } catch (error) {
+  //   console.error('Error:', error);
+  // } finally {
+  //   setLoading(false);
+  // }
+  // const response = await fetch(
+  //   'https://615fcf10f7254d001706821b.mockapi.io/api/v1/users',
+  // );
+  // const json = await response.json();
+  // console.log('data', json);
 
-    fetch('https://615fcf10f7254d001706821b.mockapi.io/api/v1/users', {
-      //   method: 'POST',
-      //   headers: {
-      //     Accept: 'application/json',
-      //     'Content-Type': 'application/json',
-      //   },
-      //   body: JSON.stringify({
-      //     // id: 30,
-      //     name: 'name 30',
-      //     phone: '25',
-      //   }),
-      // })
-      //   .then(response => response.json())
-      //   .then(responseData => {
-      //     console.log(JSON.stringify(responseData));
-      //   })
-      //   .done();
+  // fetch('https://615fcf10f7254d001706821b.mockapi.io/api/v1/users', {
+  //   method: 'POST',
+  //   headers: {
+  //     Accept: 'application/json',
+  //     'Content-Type': 'application/json',
+  //   },
+  //   body: JSON.stringify({
+  //     // id: 30,
+  //     name: 'name 30',
+  //     phone: '25',
+  //   }),
+  // })
+  //   .then(response => response.json())
+  //   .then(responseData => {
+  //     console.log(JSON.stringify(responseData));
+  //   })
+  //   .done();
 
-      method: 'PUT',
-      body: JSON.stringify({
-        id: 1,
-        name: 'name 37',
-        phone: '66',
-      }),
+  //   method: 'PUT',
+  //   body: JSON.stringify({
+  //     id: 1,
+  //     name: 'name 37',
+  //     phone: '66',
+  //   }),
+  // })
+  //   .then(response => response.json())
+
+  //   .then(responseData => {
+  //     console.log(JSON.stringify(responseData));
+  //   })
+  //   .done();
+
+  //  .then(response => console.log(JSON.stringify(response)))
+  //     .then(responseJson => {
+  //       console.log('data----', JSON.stringify(responseJson));
+  //       console.log(responseJson);
+  //     })
+  //     .catch(error => {
+  //       console.log(JSON.stringify(error));
+  //       console.error(error);
+  //     });
+  // .then(data => console.log(data))
+  // .catch((error: any) => console.log(error));
+
+  axios
+    .get('https://jsonplaceholder.typicode.com/posts/1')
+    .then(function (response) {
+      alert(JSON.stringify(response.data));
     })
-      .then(response => response.json())
-      
-      .then(responseData => {
-        console.log(JSON.stringify(responseData));
-      })
-      .done();
-
-    //  .then(response => console.log(JSON.stringify(response)))
-    //     .then(responseJson => {
-    //       console.log('data----', JSON.stringify(responseJson));
-    //       console.log(responseJson);
-    //     })
-    //     .catch(error => {
-    //       console.log(JSON.stringify(error));
-    //       console.error(error);
-    //     });
-    // .then(data => console.log(data))
-    // .catch((error: any) => console.log(error));
-  };
+    .catch(function (error) {
+      alert(error.message);
+    })
+    .finally(function () {
+      alert('Finally called');
+    });
 
   return (
     <View style={{flex: 1, backgroundColor: Appconstantcolor.blue}}>
@@ -91,7 +103,7 @@ const HomeScreen = () => {
       </View>
       <LinearGradient
         colors={['#4c669f', '#3b5998', '#192f6a']}
-        style={styles.linearGradient}> </LinearGradient>
+        style={styles.linearGradient}></LinearGradient>
       <View style={styles.imageview}>
         <Text style={styles.degree}>{Strings.Text10}</Text>
       </View>
@@ -133,6 +145,6 @@ const styles = StyleSheet.create({
   },
 });
 export default HomeScreen;
-function then(arg0: (data: any) => void) {
-  throw new Error('Function not implemented.');
-}
+
+
+
