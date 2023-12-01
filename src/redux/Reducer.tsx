@@ -1,20 +1,28 @@
+import {ADD_TODO, REMOVE_TODO} from '../redux/Actions'
+
 const initialState = {
-  count: 0,
+  todos: [],
 };
 
-export default (state = initialState, action) => {
+const todoReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'COUNT_INCRESE':
+    case ADD_TODO:
       return {
-        ...state,
-        count: state.count + 1,
+        todos: [
+          ...state.todos,
+          {
+            id: Date.now(),
+            text: action.payload.text,
+          },
+        ],
       };
-    case 'COUNT_DECRESE':
+    case REMOVE_TODO:
       return {
-        ...state,
-        count: state.count - 1,
+        todos: state.todos.filter(todo => todo.id !== action.payload.id),
       };
     default:
       return state;
   }
 };
+
+export default todoReducer;

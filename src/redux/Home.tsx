@@ -1,63 +1,50 @@
-import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+// TodoList.js
+import React, {useState} from 'react';
+import {View, Text, TextInput, Button, FlatList} from 'react-native';
+import {connect} from 'react-redux';
+import {addTodo, removeTodo} from '../redux/Actions';
 
-import {useSelector, useDispatch} from 'react-redux';
-import {increment, decrement} from '../redux/Actions';
-import Appconstantcolor from '../assets/Appconstantcolor';
+const TodoList = ({todos, dispatchAddTodo, dispatchRemoveTodo}) => {
+  const [todoText, setTodoText] = useState('');
 
-export default function Home() {
-  const dispatch = useDispatch();
-
-  const count = useSelector(store => store.count.count);
-
-  const handleIncrement = () => {
-    dispatch(increment());
+  const handleAddTodo = () => {
+    dispatchAddTodo(todoText);
+    setTodoText('');
   };
 
-  const handleDecrement = () => {
-    dispatch(decrement());
+  const handleRemoveTodo = id => {
+    dispatchRemoveTodo(id);
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.counter_text}>{count}</Text>
-
-      <TouchableOpacity onPress={handleIncrement} style={styles.btn}>
-        <Text style={styles.btn_text}>Increment</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity onPress={handleDecrement} style={styles.btn}>
-        <Text style={styles.btn_text}>Decrement</Text>
-      </TouchableOpacity>
+    <View>
+      <TextInput
+        placeholder="Enter your todo"
+        value={todoText}
+        onChangeText={setTodoText}
+      />
+      <Button title="Add" onPress={handleAddTodo} />
+      <FlatList
+        data={todos}
+        keyExtractor={item => item.id.toString()}
+        renderItem={({item}) => (
+          <View>
+            <Text>{item.text}</Text>
+            <Button title="Remove" onPress={() => handleRemoveTodo(item.id)} />
+          </View>
+        )}
+      />
     </View>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    flexDirection: 'column',
-    padding: 50,
-  },
-  title_text: {
-    fontSize: 40,
-    fontWeight: '900',
-    marginBottom: 55,
-  },
-  counter_text: {
-    fontSize: 35,
-    fontWeight: '900',
-    margin: 15,
-  },
-  btn: {
-    padding: 10,
-    margin: 10,
-    borderRadius: 10,
-    borderWidth: 1,
-    borderColor: Appconstantcolor.black1,
-  },
-  btn_text: {
-    fontSize: 23,
-    color: Appconstantcolor.black1,
-  },
+const mapStateToProps = state => ({
+  todos: state.todos,
 });
+
+const mapDispatchToProps = dispatch => ({
+  dispatchAddTodo: text => dispatch(addTodo(text)),
+  dispatchRemoveTodo: id => dispatch(removeTodo(id)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(TodoList);

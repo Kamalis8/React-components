@@ -24,13 +24,14 @@
 // App.js
 import {Provider} from 'react-redux';
 import Home from './src/redux/Home';
-import {store} from './src/redux/Store';
 import React from 'react';
-
-export default function App() {
+import store from './src/redux/Store';
+const App = () => {
   return (
     <Provider store={store}>
       <Home />
     </Provider>
   );
-}
+};
+
+export default App;
